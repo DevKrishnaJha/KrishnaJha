@@ -1,0 +1,673 @@
+/* =================================
+   CRINGE GAMES
+   Main Styles
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =================================
+   NAVIGATION
+================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(8, 8, 8, 0.75);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    opacity: 0.45;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    position: relative;
+
+    font-size: 0.9rem;
+    color: #aaaaaa;
+
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: #ffffff;
+
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =================================
+   HERO
+================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 140px 10% 100px;
+
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+
+    max-width: 850px;
+
+    z-index: 2;
+
+    animation: heroEnter 1s ease forwards;
+}
+
+.eyebrow {
+    margin-bottom: 18px;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    color: #888888;
+}
+
+.hero h1 {
+    font-size: clamp(4rem, 9vw, 8rem);
+
+    line-height: 0.92;
+
+    letter-spacing: -5px;
+
+    font-weight: 900;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: transparent;
+
+    -webkit-text-stroke: 1px #ffffff;
+}
+
+.hero-description {
+    max-width: 580px;
+
+    margin-top: 30px;
+
+    font-size: 1.1rem;
+
+    line-height: 1.7;
+
+    color: #999999;
+}
+
+.hero-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 38px;
+}
+
+.btn {
+    padding: 15px 24px;
+
+    border-radius: 8px;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+.btn.primary {
+    background: #ffffff;
+
+    color: #000000;
+}
+
+.btn.primary:hover {
+    background: #dddddd;
+}
+
+.btn.secondary {
+    border: 1px solid #333333;
+
+    color: #ffffff;
+}
+
+.btn.secondary:hover {
+    border-color: #777777;
+}
+
+
+/* =================================
+   HERO BACKGROUND
+================================= */
+
+.hero-glow {
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    right: -200px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.08),
+        transparent 65%
+    );
+
+    filter: blur(20px);
+
+    animation: floatingGlow 6s ease-in-out infinite;
+}
+
+
+/* =================================
+   GENERAL SECTIONS
+================================= */
+
+.section {
+    position: relative;
+
+    padding: 140px 10%;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.section-heading {
+    max-width: 700px;
+
+    margin-bottom: 60px;
+}
+
+.section-heading h2 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+    letter-spacing: -2px;
+
+    margin-bottom: 15px;
+}
+
+.section-heading > p:last-child {
+    color: #888888;
+
+    font-size: 1rem;
+}
+
+
+/* =================================
+   GAME / APP CARDS
+================================= */
+
+.game-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.game-card {
+    position: relative;
+
+    min-height: 380px;
+
+    padding: 40px;
+
+    display: flex;
+    align-items: flex-end;
+
+    overflow: hidden;
+
+    border: 1px solid #222222;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111111,
+            #090909
+        );
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.game-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    right: -120px;
+    top: -120px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.08),
+        transparent 70%
+    );
+
+    transition: transform 0.5s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #444444;
+}
+
+.game-card:hover::before {
+    transform: scale(1.5);
+}
+
+.card-number {
+    position: absolute;
+
+    top: 30px;
+    right: 35px;
+
+    font-size: 4rem;
+
+    font-weight: 900;
+
+    color: rgba(255, 255, 255, 0.06);
+}
+
+.card-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.card-status {
+    margin-bottom: 12px;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 2px;
+
+    color: #aaaaaa;
+}
+
+.card-status.developing {
+    color: #777777;
+}
+
+.game-card h3 {
+    font-size: 2.5rem;
+
+    margin-bottom: 15px;
+}
+
+.game-card p {
+    max-width: 450px;
+
+    color: #888888;
+
+    line-height: 1.7;
+}
+
+.tags {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 22px;
+}
+
+.tags span {
+    padding: 6px 10px;
+
+    border: 1px solid #292929;
+
+    border-radius: 50px;
+
+    font-size: 0.7rem;
+
+    color: #888888;
+}
+
+
+/* =================================
+   PROJECTS
+================================= */
+
+.projects-section {
+    background: #0b0b0b;
+}
+
+.project-list {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.project {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+
+    padding: 45px 0;
+
+    border-top: 1px solid #222222;
+
+    transition: padding-left 0.3s ease;
+}
+
+.project:last-child {
+    border-bottom: 1px solid #222222;
+}
+
+.project:hover {
+    padding-left: 15px;
+}
+
+.project-type {
+    margin-bottom: 10px;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 2px;
+
+    color: #666666;
+}
+
+.project h3 {
+    font-size: 2.5rem;
+}
+
+.project > p {
+    color: #888888;
+
+    line-height: 1.7;
+}
+
+
+/* =================================
+   ABOUT
+================================= */
+
+.about-section {
+    min-height: 70vh;
+
+    display: flex;
+
+    align-items: center;
+}
+
+.about-content {
+    max-width: 800px;
+}
+
+.about-content h2 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 35px;
+}
+
+.about-content p:not(.eyebrow) {
+    max-width: 650px;
+
+    margin-bottom: 18px;
+
+    color: #888888;
+
+    line-height: 1.8;
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+    padding: 50px 10%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-top: 1px solid #222222;
+
+    color: #666666;
+}
+
+.footer-logo {
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #ffffff;
+}
+
+
+/* =================================
+   ANIMATIONS
+================================= */
+
+@keyframes heroEnter {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes floatingGlow {
+
+    0%,
+    100% {
+        transform: translateY(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateY(-50%) scale(1.15);
+    }
+
+}
+
+
+/* =================================
+   TABLET / MOBILE
+================================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 0 6%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 0.75rem;
+    }
+
+    .hero {
+        padding: 130px 7% 80px;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.5rem, 15vw, 6rem);
+
+        letter-spacing: -3px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .section {
+        padding: 100px 7%;
+    }
+
+    .game-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .game-card {
+        min-height: 350px;
+    }
+
+    .project {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    footer {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+}
+
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 500px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .game-card {
+        padding: 30px;
+    }
+
+/* =================================
+   SCROLL REVEAL
+================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(60px) scale(0.97);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+}
